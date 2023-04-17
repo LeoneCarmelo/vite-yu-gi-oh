@@ -6,7 +6,7 @@ export default {
 
 <template>
     <!-- Header -->
-   <header class="d-flex p-2">
+   <header class="d-flex p-2 align-items-center">
       <div class="logo m-2">
          <img src="/img/logo-yu-gi-oh.png" alt="" class="img-fluid">
       </div>

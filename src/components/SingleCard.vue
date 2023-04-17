@@ -12,14 +12,19 @@ export default {
 </script>
 
 <template>
-    <li class="col">
+    <li class="col px-0">
         <div class="card">
             <img :src="src" alt="">
         </div>
-        <div class="card_title">{{ title }}</div>
-        <div class="card_archetype">{{ archetype }}</div>
+        <div class="card_title text-center text-uppercase fw-bold text-white">{{ title }}</div>
+        <div class="card_archetype text-center">{{ archetype }}</div>
     </li>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../assets/scss/partials/variables' as *;
+.col {
+    background-color: $primary;
+}
+</style>

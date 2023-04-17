@@ -23,11 +23,11 @@ export default {
 <template>
    <section class="container cards p-5">
       <div class="row">
-         <div class="col-12">
-            <div class="cards_found p-3">{{ getTotalCards() }}</div>
+         <div class="col-12 px-0">
+            <div class="cards_found p-3" v-if="store.cards">{{ getTotalCards() }}</div>
          </div>
-         <CardsList></CardsList>
       </div>
+      <CardsList></CardsList>
    </section>
 </template>
 
