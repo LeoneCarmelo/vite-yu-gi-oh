@@ -3,11 +3,13 @@
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import SectionComponent from './components/SectionComponent.vue'
+import SelectComponent from './components/SelectComponent.vue'
 import { store } from './store.js'
 export default {
    components: {
       AppHeader,
-      SectionComponent
+      SectionComponent,
+      SelectComponent
    },
    data() {
       return {
@@ -46,14 +48,8 @@ export default {
    <AppHeader></AppHeader>
 
    <main class="p-3">
-      <div class="container">
-         <select class="my-2" v-model="store.selected" @change="archetypeFilter()">
-            <option disabled value="">Filter by archetype</option>
-            <option>Alien</option>
-            <option>Blue-eyes</option>
-            <option>Melodious</option>
-         </select>
-      </div>
+      <SelectComponent :filter="archetypeFilter()"/>
+
       <SectionComponent></SectionComponent>
 
    </main>
