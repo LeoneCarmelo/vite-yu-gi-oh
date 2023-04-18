@@ -14,17 +14,29 @@ export default {
          store
       }
    },
+   methods: {
+      callApi(url) {
+         axios
+            .get(url)
+            .then(response => {
+               console.log(response.data.data[0].card_images[0].image_url)
+               this.store.cards = response.data.data
+            })
+            .catch(err => {
+               console.log(err);
+               console.log(err.message);
+            })
+      },
+      archetypeFilter() {
+         if (store.selected.length > 0) {
+            const selection = store.urlApi + `&archetype=${store.selected}`
+            this.callApi(selection)
+         }
+      },
+      
+   },
    mounted() {
-      axios
-         .get(this.store.urlApi)
-         .then(response => {
-            console.log(response.data.data[0].card_images[0].image_url)
-            this.store.cards = response.data.data
-         })
-         .catch(err => {
-            console.log(err);
-            console.log(err.message);
-         })
+      this.callApi(store.urlApi)
    }
 
 }
@@ -35,8 +47,11 @@ export default {
 
    <main class="p-3">
       <div class="container">
-         <select name="" id="" class="my-2">
-            <option value="Alien">Alien</option>
+         <select class="my-2" v-model="store.selected" @change="archetypeFilter()">
+            <option disabled value="">Filter by archetype</option>
+            <option>Alien</option>
+            <option>Blue-eyes</option>
+            <option>Melodious</option>
          </select>
       </div>
       <SectionComponent></SectionComponent>
