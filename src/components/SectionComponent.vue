@@ -1,10 +1,12 @@
 <script>
 import CardsList from './CardsList.vue'
 import { store } from '../store.js'
+import TotalCards from './TotalCards.vue'
 export default {
    name: 'SectionComponent',
    components: {
-      CardsList
+      CardsList,
+      TotalCards
    },
    data() {
       return {
@@ -22,11 +24,7 @@ export default {
 
 <template>
    <section class="container cards p-5">
-      <div class="row">
-         <div class="col-12 px-0">
-            <div class="cards_found p-3" v-if="store.cards">{{ getTotalCards() }}</div>
-         </div>
-      </div>
+      <TotalCards :totalcards="getTotalCards()" v-if="store.cards"/>
       <CardsList></CardsList>
    </section>
 </template>
@@ -37,10 +35,5 @@ export default {
 
 section.cards {
    background-color: $light;
-
-   .cards_found {
-      background-color: $dark;
-      color: $light;
-   }
 }
 </style>

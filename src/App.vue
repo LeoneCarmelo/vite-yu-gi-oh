@@ -46,12 +46,9 @@ export default {
 
 <template>
    <AppHeader></AppHeader>
-
    <main class="p-3">
       <SelectComponent :filter="archetypeFilter()"/>
-
       <SectionComponent></SectionComponent>
-
    </main>
 </template>
 
