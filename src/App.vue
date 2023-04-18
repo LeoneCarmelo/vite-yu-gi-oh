@@ -23,6 +23,7 @@ export default {
             .then(response => {
                console.log(response.data.data[0].card_images[0].image_url)
                this.store.cards = response.data.data
+               store.loading = false
             })
             .catch(err => {
                console.log(err);
