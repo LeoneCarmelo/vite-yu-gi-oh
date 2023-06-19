@@ -58,6 +58,6 @@ export default {
 
 
 main {
-   background-color: $primary;
+   background-image: linear-gradient( blue, red,violet, gold);
 }
 </style>

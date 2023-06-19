@@ -33,6 +33,6 @@ export default {
 }
 
 .col:hover {
-    box-shadow: 0 0 2px 2px $primary;
+    box-shadow: 0 0 2px 2px blue;
 }
 </style>
